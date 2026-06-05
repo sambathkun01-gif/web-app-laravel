@@ -32,7 +32,7 @@
                         <button onclick="return confirmAction()" class="btn btn-danger delete">Delete</button>
                     {{ Html::form()->close() }}
             </td>
-        </tr>
+        </tr> 
         @endforeach
     </tbody>
 </table>

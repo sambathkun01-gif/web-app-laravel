@@ -6,6 +6,7 @@ use function Laravel\Prompts\autocomplete;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\InventoryController;
 
 //1. Basic Routes
 Route::get('/', function () {
@@ -90,6 +91,8 @@ Route::get('/',[FrontendController::class,'index']);
 Route::get('/list',[FrontendController::class,'list']);
 Route::get('/show/{id}',[FrontendController::class,'show']);
 
+
+Route::resource('inventory', InventoryController::class);
 
 
 

@@ -70,6 +70,10 @@
         <td>${{ $item->UnitPrice }}</td>
 
         <td>
+             <a href="{{ route('inventory.show',$item->IngredientID) }}"
+                        class="btn btn-info btn-sm">
+                       View
+             </a>
 
             <a href="{{ route('inventory.edit',$item->IngredientID) }}"
                class="btn btn-warning btn-sm">

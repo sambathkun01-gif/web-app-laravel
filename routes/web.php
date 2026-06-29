@@ -96,3 +96,9 @@ Route::resource('inventory', InventoryController::class);
 
 
 
+use App\Http\Controllers\FlightController;
+
+Route::resource('flights', FlightController::class);
+
+
+

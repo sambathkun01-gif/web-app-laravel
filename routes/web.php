@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use function Laravel\Prompts\autocomplete;
@@ -99,6 +100,18 @@ Route::resource('inventory', InventoryController::class);
 use App\Http\Controllers\FlightController;
 
 Route::resource('flights', FlightController::class);
+
+Route::get('/search', [FrontendController::class,'getBySearch']);
+Route::get('/frontend/{category?}', [FrontendController::class,'getByCategory']);
+
+
+// login and register
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/post-login', [AuthController::class, 'postLogin'])->name('login.post');
+Route::get('/registration', [AuthController::class, 'registration'])->name('register');
+Route::post('/post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+Route::get('/dashboard', [AuthController::class, 'dashboard']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 

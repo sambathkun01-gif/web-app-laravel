@@ -8,6 +8,9 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\UpdateProfileController;
+
 
 //1. Basic Routes
 Route::get('/', function () {
@@ -106,12 +109,21 @@ Route::get('/frontend/{category?}', [FrontendController::class,'getByCategory'])
 
 
 // login and register
-Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::get('/login', [AuthController::class, 'index'])->name('login.page');
 Route::post('/post-login', [AuthController::class, 'postLogin'])->name('login.post');
-Route::get('/registration', [AuthController::class, 'registration'])->name('register');
+Route::get('/registration', [AuthController::class, 'registration'])->name('register.page');
 Route::post('/post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
 Route::get('/dashboard', [AuthController::class, 'dashboard']);
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout.page');
+
+// Update Profile and Change Password
+Route::get('/change-password', [ChangePasswordController::class, 'index'])->name('form.password');
+Route::post('/change-password', [ChangePasswordController::class, 'store'])->name('change.password');
+
+// update profile
+Route::get('/update-profile/{user}',  [UpdateProfileController::class, 'editProfile'])->name('profile.edit');
+Route::patch('/update-profile/{user}',  [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
+
 
 
 

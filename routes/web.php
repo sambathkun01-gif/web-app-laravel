@@ -10,7 +10,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UpdateProfileController;
-
+use App\Http\Controllers\ForgotPasswordController;
 
 //1. Basic Routes
 Route::get('/', function () {
@@ -123,6 +123,12 @@ Route::post('/change-password', [ChangePasswordController::class, 'store'])->nam
 // update profile
 Route::get('/update-profile/{user}',  [UpdateProfileController::class, 'editProfile'])->name('profile.edit');
 Route::patch('/update-profile/{user}',  [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
 
 
 

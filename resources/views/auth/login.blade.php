@@ -39,6 +39,7 @@
                                     @endif
                                 </div>
                             </div>
+                            
 
                             <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
@@ -49,6 +50,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                              <div class="col-md-6 offset-md-4">
+                                  <div class="checkbox">
+                                      <label>
+                                          <a href="{{ route('forget.password.get') }}">Reset Password</a>
+                                      </label>
+                                  </div>
+                              </div>
+                          </div>
 
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

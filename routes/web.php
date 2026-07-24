@@ -11,6 +11,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UpdateProfileController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ContactUsFormController;
 
 //1. Basic Routes
 Route::get('/', function () {
@@ -124,10 +125,16 @@ Route::post('/change-password', [ChangePasswordController::class, 'store'])->nam
 Route::get('/update-profile/{user}',  [UpdateProfileController::class, 'editProfile'])->name('profile.edit');
 Route::patch('/update-profile/{user}',  [UpdateProfileController::class, 'updateProfile'])->name('profile.update');
 
+//forgetPassword
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+//contact
+Route::get('/contact', [ContactUsFormController::class, 'createForm']);
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+
 
 
 
